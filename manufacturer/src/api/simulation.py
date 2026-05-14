@@ -16,6 +16,7 @@ from src.models.entities import (
     ManufacturingOrder,
     Product,
     PurchaseOrder,
+    SalesOrder,
     SimState,
     SimStateRead,
     Supplier,
@@ -31,10 +32,10 @@ async def get_simulation_state(session: Session = Depends(get_session)):
     state = get_sim_state(session)
 
     pending = session.exec(
-        select(ManufacturingOrder).where(ManufacturingOrder.status == "pending")
+        select(SalesOrder).where(SalesOrder.status == "pending")
     ).all()
     in_progress = session.exec(
-        select(ManufacturingOrder).where(ManufacturingOrder.status == "in_progress")
+        select(SalesOrder).where(SalesOrder.status == "in_production")
     ).all()
 
     return SimStateRead(
@@ -42,7 +43,7 @@ async def get_simulation_state(session: Session = Depends(get_session)):
         capacity_per_day=state.capacity_per_day,
         is_paused=state.is_paused,
         pending_orders_count=len(pending),
-        in_progress_count=len(in_progress),
+        in_progress_count=sum(o.quantity for o in in_progress),
     )
 
 
