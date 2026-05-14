@@ -104,21 +104,24 @@ async function fetchInventory() {
 }
 
 async function fetchOrders() {
-    const res = await fetch('/manufacturing-orders');
+    const res = await fetch('/api/orders');
     const orders = await res.json();
-    
+
     els.ordersBody.innerHTML = '';
+    if (orders.length === 0) {
+        els.ordersBody.innerHTML = '<tr><td colspan="5" style="text-align:center;opacity:0.5">No sales orders yet</td></tr>';
+        return;
+    }
     orders.forEach(o => {
-        // Build Action Button
         let actHtml = '-';
         if (o.status === 'pending') {
             actHtml = `<button class="btn btn-secondary btn-sm" onclick="releaseOrder(${o.id})">Release</button>`;
         }
-        
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>#MO-${o.id}</td>
-            <td><strong>${o.product_name}</strong></td>
+            <td>#SO-${o.id}</td>
+            <td><strong>${o.model}</strong><br><small style="opacity:0.6">${o.retailer_name}</small></td>
             <td>x${o.quantity}</td>
             <td><span class="status-badge status-${o.status}">${o.status}</span></td>
             <td>${actHtml}</td>
@@ -222,7 +225,7 @@ async function issuePurchaseOrder() {
 }
 
 async function releaseOrder(orderId) {
-    const res = await fetch(`/manufacturing-orders/${orderId}/release`, { method: 'POST' });
+    const res = await fetch(`/api/orders/${orderId}/release`, { method: 'POST' });
     
     if (res.ok) {
         showToast(`Order MO-${orderId} Released for production`, 'success');
