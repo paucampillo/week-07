@@ -1,0 +1,80 @@
+{
+  "current_day": 1,
+  "capacity_per_day": 10,
+  "products": [
+    {
+      "name": "P3D-Classic",
+      "type": "finished",
+      "assembly_time_hours": 4.0,
+      "description": "Entry-level 3D printer with standard features"
+    },
+    {
+      "name": "P3D-Pro",
+      "type": "finished",
+      "assembly_time_hours": 6.0,
+      "description": "Professional printer with dual extruder"
+    },
+    {
+      "name": "kit_piezas",
+      "type": "raw",
+      "assembly_time_hours": 0,
+      "description": "Mechanical structure kit"
+    },
+    {
+      "name": "pcb",
+      "type": "raw",
+      "assembly_time_hours": 0,
+      "description": "Control board PCB"
+    },
+    {
+      "name": "extrusor",
+      "type": "raw",
+      "assembly_time_hours": 0,
+      "description": "Extruder head"
+    },
+    {
+      "name": "pantalla_lcd",
+      "type": "raw",
+      "assembly_time_hours": 0,
+      "description": "LCD panel"
+    },
+    {
+      "name": "fuente_alimentacion",
+      "type": "raw",
+      "assembly_time_hours": 0,
+      "description": "Power supply"
+    }
+  ],
+  "bom": [
+    { "finished_product": "P3D-Classic", "material": "kit_piezas", "quantity": 1 },
+    { "finished_product": "P3D-Classic", "material": "pcb", "quantity": 1 },
+    { "finished_product": "P3D-Classic", "material": "extrusor", "quantity": 1 },
+    { "finished_product": "P3D-Classic", "material": "fuente_alimentacion", "quantity": 1 },
+    { "finished_product": "P3D-Pro", "material": "kit_piezas", "quantity": 2 },
+    { "finished_product": "P3D-Pro", "material": "pcb", "quantity": 1 },
+    { "finished_product": "P3D-Pro", "material": "extrusor", "quantity": 2 },
+    { "finished_product": "P3D-Pro", "material": "pantalla_lcd", "quantity": 1 },
+    { "finished_product": "P3D-Pro", "material": "fuente_alimentacion", "quantity": 1 }
+  ],
+  "suppliers": [
+    {
+      "name": "Legacy Local Supplier",
+      "product_name": "pcb",
+      "unit_cost": 30.0,
+      "lead_time_days": 3,
+      "min_order_qty": 10
+    }
+  ],
+  "inventory": [
+    { "product_name": "kit_piezas", "quantity": 20 },
+    { "product_name": "pcb", "quantity": 5 },
+    { "product_name": "extrusor", "quantity": 20 },
+    { "product_name": "pantalla_lcd", "quantity": 15 },
+    { "product_name": "fuente_alimentacion", "quantity": 30 }
+  ],
+  "wholesale_prices": {
+    "P3D-Classic": 500,
+    "P3D-Pro": 800
+  }
+}
+

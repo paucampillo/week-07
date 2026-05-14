@@ -1,0 +1,21 @@
+{
+  "day": 1,
+  "products": [
+    {
+      "model": "P3D-Classic",
+      "retail_price": 650.0,
+      "wholesale_price": 500.0,
+      "stock": 0
+    },
+    {
+      "model": "P3D-Pro",
+      "retail_price": 1040.0,
+      "wholesale_price": 800.0,
+      "stock": 0
+    }
+  ],
+  "manufacturer": {
+    "name": "Factory",
+    "url": "http://localhost:8002"
+  }
+}

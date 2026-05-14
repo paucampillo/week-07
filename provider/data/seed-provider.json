@@ -1,0 +1,67 @@
+{
+  "current_day": 1,
+  "products": [
+    {
+      "sku": "pcb",
+      "name": "PCB Control Board",
+      "description": "Main control board for printers",
+      "base_price": 30.0,
+      "lead_time_days": 3,
+      "stock": 200,
+      "tiers": [
+        { "min_qty": 20, "unit_price": 28.5 },
+        { "min_qty": 50, "unit_price": 27.0 },
+        { "min_qty": 100, "unit_price": 25.5 }
+      ]
+    },
+    {
+      "sku": "extrusor",
+      "name": "Extruder Unit",
+      "description": "Single-nozzle extruder",
+      "base_price": 64.0,
+      "lead_time_days": 4,
+      "stock": 150,
+      "tiers": [
+        { "min_qty": 10, "unit_price": 62.0 },
+        { "min_qty": 25, "unit_price": 60.0 }
+      ]
+    },
+    {
+      "sku": "kit_piezas",
+      "name": "Mechanical Parts Kit",
+      "description": "Rails, frame and screws",
+      "base_price": 48.0,
+      "lead_time_days": 3,
+      "stock": 180,
+      "tiers": [
+        { "min_qty": 10, "unit_price": 45.0 },
+        { "min_qty": 40, "unit_price": 43.0 }
+      ]
+    },
+    {
+      "sku": "pantalla_lcd",
+      "name": "LCD Display Panel",
+      "description": "Touchscreen module",
+      "base_price": 38.0,
+      "lead_time_days": 2,
+      "stock": 120,
+      "tiers": [
+        { "min_qty": 10, "unit_price": 35.0 },
+        { "min_qty": 30, "unit_price": 33.0 }
+      ]
+    },
+    {
+      "sku": "fuente_alimentacion",
+      "name": "Power Supply Unit",
+      "description": "24V PSU",
+      "base_price": 20.0,
+      "lead_time_days": 2,
+      "stock": 300,
+      "tiers": [
+        { "min_qty": 25, "unit_price": 18.0 },
+        { "min_qty": 80, "unit_price": 16.5 }
+      ]
+    }
+  ]
+}
+

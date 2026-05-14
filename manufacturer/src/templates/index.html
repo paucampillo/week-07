@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Printer Simulation Dashboard</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="glass-panel main-header">
+            <div class="logo">
+                <div class="status-indicator"></div>
+                <h1>Factory Sim <span>Pro</span></h1>
+            </div>
+            
+            <div class="sim-stats">
+                <div class="stat-box">
+                    <span class="label">DAY</span>
+                    <span class="value accent-blue" id="current-day">1</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">CAPACITY</span>
+                    <span class="value"><span id="capacity-used">0</span> / <span id="capacity-total">10</span></span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="capacity-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="btn-advance" class="btn btn-primary">
+                    Advance Day
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Dashboard -->
+        <main class="dashboard-grid">
+            
+            <!-- Pending Orders -->
+            <section class="glass-panel panel-orders">
+                <div class="panel-header">
+                    <h2>Manufacturing Orders</h2>
+                </div>
+                <div class="table-container">
+                    <table id="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-body">
+                            <!-- Dynamic Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Inventory -->
+            <section class="glass-panel panel-inventory">
+                <div class="panel-header">
+                    <h2>Inventory & Shortages</h2>
+                </div>
+                <div class="inventory-grid" id="inventory-container">
+                    <!-- Dynamic Inventory Cards -->
+                </div>
+            </section>
+
+            <!-- Procurement (Purchases) -->
+            <section class="glass-panel panel-purchases">
+                <div class="panel-header">
+                    <h2>Procurement</h2>
+                </div>
+                
+                <form id="purchase-form" class="purchase-form">
+                    <div class="form-group">
+                        <label for="supplier-select">Supplier</label>
+                        <select id="supplier-select" required>
+                            <!-- Dynamic Options -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="purchase-qty">Quantity</label>
+                        <input type="number" id="purchase-qty" min="1" value="10" required>
+                    </div>
+                    <div id="purchase-info" class="purchase-info hidden">
+                        Est. Cost: $<span id="est-cost">0</span> | Lead Time: <span id="lead-time">0</span> days
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Issue Purchase Order</button>
+                </form>
+
+                <div class="recent-po-list">
+                    <h3>Pending Deliveries</h3>
+                    <ul id="po-list" class="po-list">
+                        <!-- Dynamic POs -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Event Log -->
+            <section class="glass-panel panel-events">
+                <div class="panel-header">
+                    <h2>Activity Log</h2>
+                </div>
+                <div class="event-ticker" id="event-log">
+                    <!-- Dynamic Events -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- App Logic -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
